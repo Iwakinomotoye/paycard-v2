@@ -61,9 +61,7 @@ export default {
     if (!this.$store.getters.currency) {
       this.fetchCurrency();
     }
-    if (!Array.isArray(this.$store.getters.paymentMethodList)) {
-      this.fetchPaymentMethod();
-    }
+    this.fetchPaymentMethod();
   },
 };
 </script>
