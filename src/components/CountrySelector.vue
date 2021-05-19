@@ -58,16 +58,10 @@ export default {
       .$(".countrypicker .dropdown-menu.inner")
       .css({ "max-width": "84.375vw" });
 
-    if (
-      this.$store.getters.currency &&
-      this.$store.getters.currency.name.length === 0
-    ) {
+    if (!this.$store.getters.currency) {
       this.fetchCurrency();
     }
-    if (
-      this.$store.getters.paymentMethodList &&
-      this.$store.getters.paymentMethodList.length === 0
-    ) {
+    if (!Array.isArray(this.$store.getters.paymentMethodList)) {
       this.fetchPaymentMethod();
     }
   },
