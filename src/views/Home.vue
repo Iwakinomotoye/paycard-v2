@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <country-selector />
+    <payment-method-selector />
+    <payment-method-form :price="5" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CountrySelector from "@/components/CountrySelector.vue";
+import PaymentMethodSelector from "@/components/PaymentMethodSelector.vue";
+import PaymentMethodForm from "@/components/PaymentMethodForm.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    CountrySelector,
+    PaymentMethodSelector,
+    PaymentMethodForm,
   },
 };
 </script>

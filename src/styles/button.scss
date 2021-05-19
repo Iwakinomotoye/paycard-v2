@@ -1,0 +1,23 @@
+.next-btn {
+  background: #2AF5D6;
+  border-radius: 4px;
+  width: 222px;
+  height: 48px;
+  color: #070c11;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.62px;
+  border: 0;
+  transition: all 0.3s;
+  display: block;
+  margin: 30px auto 0;
+}
+.next-btn:hover {
+  background: #5FFFE6;
+}
+.next-btn:focus {
+  background: #2AB8F5;
+  color: #fff;
+}
