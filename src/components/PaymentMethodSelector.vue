@@ -9,8 +9,11 @@
         :key="paymentMethod.id"
       >
         <button
-          @click="changeSelectedMethod($event, paymentMethod)"
-          class="payment-card"
+          @click="changeSelectedMethod(paymentMethod)"
+          :class="[
+            paymentMethod.id === paymentMethodId ? 'selected' : '',
+            'payment-card',
+          ]"
         >
           <img
             :class="paymentMethod.img_class"
@@ -27,24 +30,16 @@
 <script>
 export default {
   name: "PaymentMethodSelector",
-  data() {
-    return {};
-  },
   computed: {
     paymentMethods() {
       return this.$store.getters.paymentMethodList;
     },
+    paymentMethodId() {
+      return this.$store.getters.paymentMethod.id;
+    },
   },
   methods: {
-    changeSelectedMethod({ target }, paymentMethod) {
-      while (!target.classList.contains("payment-card")) {
-        target = target.parentNode;
-      }
-      var methods = document.querySelectorAll(".payment-method > button");
-      methods.forEach(function (method) {
-        method.classList.remove("selected");
-      });
-      target.classList.add("selected");
+    changeSelectedMethod(paymentMethod) {
       this.$store.dispatch("setSelectedPaymentMethod", paymentMethod);
     },
   },

@@ -113,8 +113,8 @@ export default {
       const paymentMethod = this.$store.getters.paymentMethod;
       if (
         paymentMethod &&
-        paymentMethod.name.length > 0 &&
-        paymentMethod.id.length > 0
+        paymentMethod.name &&
+        paymentMethod.name.length > 0
       ) {
         this.resetForm();
         return true;
