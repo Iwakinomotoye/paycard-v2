@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Payment Methods</h2>
+    <p>Select one of the payment methods below:</p>
     <div class="payment-methods">
       <div
         class="payment-method"
