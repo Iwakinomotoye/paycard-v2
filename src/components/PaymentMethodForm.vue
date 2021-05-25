@@ -245,15 +245,22 @@ export default {
       if (target.value.length === 0) return;
 
       if (
-        /^[0-9/]+$/.test(target.value) &&
-        /^\d+\/?/.test(target.value) &&
-        !/^\d{3,}\/?/.test(target.value) &&
-        !/^\d{1}\//.test(target.value) &&
-        !/^\d{2}\/{2,}/.test(target.value) &&
-        !/^\d{2}\/\d{5,}/.test(target.value)
-      )
-        return;
-      this.validateExpDate({ target });
+        (target.value.length === 1 && !/0|1/.test(target.value)) ||
+        (target.value.length === 2 && !/(0[1-9]|1[0-2])/.test(target.value)) ||
+        (target.value.length === 3 &&
+          !/(0[1-9]|1[0-2])\//.test(target.value)) ||
+        (target.value.length === 4 &&
+          !/(0[1-9]|1[0-2])\/[2-9]/.test(target.value)) ||
+        (target.value.length === 5 &&
+          !/(0[1-9]|1[0-2])\/[2-9]\d/.test(target.value)) ||
+        (target.value.length === 6 &&
+          !/(0[1-9]|1[0-2])\/[2-9]\d{2}/.test(target.value)) ||
+        (target.value.length === 7 &&
+          !/(0[1-9]|1[0-2])\/[2-9]\d{3}/.test(target.value))
+      ) {
+        target.classList.add("invalid");
+        return (this.cardDateError = true);
+      }
     },
     validateExpDate({ target }) {
       if (/^\d{2}\/\d{2,4}$/.test(target.value)) {
