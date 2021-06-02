@@ -427,5 +427,6 @@ export default {
 }
 .card-field input.invalid ~ .error-icon {
   display: inline-block;
+  
 }
 </style>
